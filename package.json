@@ -1,0 +1,33 @@
+{
+  "name": "test.produce-service",
+  "version": "1.0.0",
+  "description": "This project can be used to produce message to a local Rabbit MQ instance",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": " node dist/index.js",
+    "dev": "ts-node-dev  --respawn ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solganeo-org/test.produce-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solganeo-org/test.produce-service/issues"
+  },
+  "homepage": "https://github.com/solganeo-org/test.produce-service#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.8.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.0",
+    "dotenv": "^16.0.1"
+  }
+}
