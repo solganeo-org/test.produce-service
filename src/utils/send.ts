@@ -19,9 +19,20 @@ export const runRabbitMQSend = async (): Promise<void> => {
 
         let nb_messages: number = Number(process.env.NB_MESSAGES);
 
+        const payload = {
+
+            endpoint: String(process.env.ENDPOINT),
+            p256dh: String(process.env.P256DH),
+            auth: String(process.env.AUTH),
+            content: msg
+
+        }
+
+        const stringPayload = JSON.stringify(payload)
+
         for(let i=0; i<nb_messages; i++){
-            channel.sendToQueue(queue, Buffer.from(msg));
-            console.log(` ${i+1} Sent to Queue [${queue}]: Content = ${msg}`);
+            channel.sendToQueue(queue, Buffer.from(stringPayload));
+            console.log(` ${i+1} Sent to Queue [${queue}]: Content = ${stringPayload}`);
         }
 
     });
